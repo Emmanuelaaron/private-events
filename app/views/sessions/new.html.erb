@@ -1,2 +1,9 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<h1>Log</h1>
+
+<%= form_tag log_in_path do %>
+<fieldset>
+ <%= label_tag "User Name" %>
+ <%= text_field_tag "user[username]" %>
+</fieldset>
+<%=submit_tag 'Log in' %>
+<% end %>
