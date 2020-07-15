@@ -4,7 +4,14 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create; end
+  def create
+    @user = User.create(user_params)
+    if @user.save
+      redirect_to @user
+    else
+      render :back
+    end
+  end
 
   def show; end
 
