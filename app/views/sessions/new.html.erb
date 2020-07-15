@@ -1,9 +1,9 @@
-<h1>Log</h1>
+<h1 class="title">Log in</h1>
 
 <%= form_tag log_in_path do %>
-<fieldset>
- <%= label_tag "User Name" %>
- <%= text_field_tag "user[username]" %>
+<fieldset class="form-group">
+ <%= label_tag "User Name",nil,class:'form-control' %>
+ <%= text_field_tag "user[username]",nil,class:"form-control"%>
 </fieldset>
-<%=submit_tag 'Log in' %>
+<%=submit_tag 'Log in' ,class:"form-control btn btn-primary"%>
 <% end %>
