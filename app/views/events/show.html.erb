@@ -2,4 +2,13 @@
   <p><%= @event.description %></p>
   <p><%= @event.event_date %></p>
   <p>Organised by <%= @event.creator.username %></p>
+  <h2>Event Attendees</h2>
+  <ul>
+  <li>
+   <% @event.event_attendees.each do |attendee|%>
+
+   <%=attendee.username%>
+   <%end%>
+  </li>
+  </ul>
 </div>
