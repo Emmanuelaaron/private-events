@@ -1,23 +1,24 @@
 
-<h2>Events created by <%=@user.username%></h2>
+<h2 class="mt-3">Events You Created</h2>
 <%if@user.events.count>0%>
 <% @user.events.each do |event| %>
   <p><%= event.description %></p>
 <% end %>
 <%else%>
-<p class="lead"><%=@user.username%> created zero events</p>
+<p class="lead">You created zero events</p>
 <%end%>
 <h2>Events to Attend : </h2>
 
 
 <%if @user.attended_events.count>0%>
- <%=@user.username%> has <%= pluralize(@user.attended_events.count,'event')%> to attend.
+ You have <%= pluralize(@user.attended_events.count,'event')%> to attend.
 <ul>
   <li class="jumbotron d-flex justify-content-between p-2">
   
     <%@user.attended_events.each do |event|%>
     <span>  <%=event.description%></span>
-   <span> ON:<%=event.event_date%></span>
+   <span> ON: <%=event.event_date.strftime('%FT%T')%></span>
+   <span> BY:  <%=event.creator.username.capitalize%></span>
     <%end%>
   </li>
 
