@@ -1,11 +1,7 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: %i[create]
+  before_action :authenticate_user!, only: %i[new create]
   def new
-    if current_user
-      @event = current_user.events.build
-    else
-      render 'new'
-    end
+    @event = Event.new
   end
 
   def create
