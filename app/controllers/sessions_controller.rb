@@ -5,9 +5,10 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params['user']['username'])
     if user
       session[:user_id] = user.id
+      flash[:success] = 'Successfuly Logged in!'
       redirect_to user_path(user)
     else
-      flash[:alert] = 'Invalid user name!'
+      flash[:danger] = 'Invalid user name!'
       redirect_to sessions_new_path
     end
   end

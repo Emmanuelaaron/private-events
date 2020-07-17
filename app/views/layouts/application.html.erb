@@ -36,12 +36,18 @@
     </ul>
   </div>
 </nav>
-<% if flash[:alert]%>
+<% if flash[:danger]%>
   <div class="container">
   <p class="alert alert-danger  my-3 p-3">
-  <%=flash[:alert]%></p>
+  <%=flash[:danger]%></p>
+   </div>
+  <%elsif flash[:success]%>
+  <div class="container">
+  <p class="alert alert-success  my-3 p-3">
+  <%=flash[:success]%></p>
+   </div>
   <%end%>
-  </div>
+ 
    <div class="container"> 
    <%= yield %>
    </div>
