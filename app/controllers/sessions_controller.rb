@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(user)
     else
       flash[:alert] = 'Invalid user name!'
-      render 'new'
+      redirect_to sessions_new_path
     end
   end
 

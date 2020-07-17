@@ -36,9 +36,9 @@
     </ul>
   </div>
 </nav>
+<% if flash[:alert]%>
   <div class="container">
   <p class="alert alert-danger  my-3 p-3">
-  <% if flash[:alert]%>
   <%=flash[:alert]%></p>
   <%end%>
   </div>

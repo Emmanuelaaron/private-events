@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     redirect_to sessions_new_path if current_user.nil?
   end
+
+  def signed_in?
+    !current_user.nil?
+  end
 end
