@@ -10,4 +10,9 @@ module ApplicationHelper
   def signed_in?
     !current_user.nil?
   end
+
+  def sign_in(user)
+    session[:user_id] = user.id
+    flash[:success] = 'Successfuly Logged in!'
+  end
 end
