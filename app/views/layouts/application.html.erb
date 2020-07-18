@@ -12,14 +12,11 @@
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   
-  <a class="navbar-brand" href="#">
   <%if signed_in?%>
-  <%=current_user.username.capitalize%>
-  
+  <%=link_to current_user.username.capitalize , current_user,class:'navbar-brand'%>
   <% else %>
-   PrivateEvents
+   <p class="navbar-brand">PrivateEvents</p>
   <% end %>
-  </a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
       <%if signed_in? %>

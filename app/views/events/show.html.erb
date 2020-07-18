@@ -13,17 +13,16 @@
   
  
  <div>
- <h2>Invite Freinds</h2>
-  <div class="form-group">
+    <h2>Invite Freinds</h2>
+    <div class="form-group">
       <%= form_tag invite_path do %>
-     <%= label_tag "User Name",nil,class:'form-control' %>
-
-   <%= text_field_tag "username",nil,class:"form-control"%>
-     </div>
-   <div class="form-group">
-     <%=submit_tag 'Invite' ,class:"form-control btn btn-primary" %>
-     <%=hidden_field_tag  "event_id" ,"#{@event.id}"%>
-   </div>
+      <%= label_tag "User Name",nil,class:'form-control' %>
+      <%= text_field_tag "username",nil,class:"form-control"%>
+    </div>
+    <div class="form-group">
+      <%=submit_tag 'Invite' ,class:"form-control btn btn-primary" %>
+      <%=hidden_field_tag  "event_id" ,"#{@event.id}"%>
+    </div>
  </div>
 <% end %>
  
