@@ -11,8 +11,15 @@
   
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Private Events</a>
-
+  
+  <a class="navbar-brand" href="#">
+  <%if signed_in?%>
+  <%=current_user.username.capitalize%>
+  
+  <% else %>
+   PrivateEvents
+  <% end %>
+  </a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -27,10 +34,14 @@
       <%= link_to  "Create Event", new_event_path, class:"nav-link nav-item" %>
 
       <%= link_to  "Log out",log_out_path, class:'nav-link nav-item', method: :delete, data:{confirmation:"Are you sure?"} %>
+
+
+       <%= image_tag avatar_url(current_user) %>
     
       <%else%>
        <%= link_to  "Sign Up",new_user_path, class:'nav-link nav-item' %>
      <%= link_to  "Login", sessions_new_path, class:'nav-link nav-item' %>
+   
       <%end%>
     </ul>
   </div>
