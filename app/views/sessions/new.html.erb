@@ -1,9 +1,14 @@
-<h1 class="title">Log in</h1>
-
-<%= form_tag log_in_path do %>
-<fieldset class="form-group">
- <%= label_tag "User Name",nil,class:'form-control' %>
- <%= text_field_tag "user[username]",nil,class:"form-control"%>
-</fieldset>
-<%=submit_tag 'Log in' ,class:"form-control btn btn-primary"%>
-<% end %>
+<div clas="row">
+ <div class='card p-3 m-3 col-md-6 mx-auto'>
+  <h1 class="h2 py-3">Log in</h1>
+  
+  <%= form_tag log_in_path do %>
+  <fieldset class="form-group">
+   <%= label_tag "User Name",nil,class:'form-control' %>
+   <%= text_field_tag "user[username]",nil,class:"form-control"%>
+  </fieldset>
+  <%=submit_tag 'Log in' ,class:"form-control btn btn-primary"%>
+  <div class="pt-5">Not Registered yet? <%= link_to  "Sign up", new_user_path %></div>
+  <% end %>
+ </div>
+</div>
