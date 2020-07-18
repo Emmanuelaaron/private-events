@@ -6,8 +6,13 @@ class EventsController < ApplicationController
 
   def invite
     @event = Event.find(params[:event_id])
-    if User.find_by(username: params[:username])
-      @event.event_attendees << User.find_by(username: params[:username])
+    if (user = User.find_by(username: params[:username]))
+      if @event.event_attendees.include?(user)
+        flash[:danger] = "#{params[:username]} is already invited"
+      else
+        @event.event_attendees << User.find_by(username: params[:username])
+        flash[:success] = "#{params[:username]} successfuly invited!"
+      end
     else
       flash[:danger] = 'No such user exits'
     end
@@ -27,7 +32,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if current_user == @event.creator || @event.event_attendees
         .include?(current_user)
-      redirect_to @event
     else
       redirect_to current_user
     end
