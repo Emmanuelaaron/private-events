@@ -11,7 +11,7 @@
    <p><%=attendee.username%></p>
    <%end%>
   
- 
+ <%if @event.creator==current_user%>
  <div>
     <h2>Invite Freinds</h2>
     <div class="form-group">
@@ -27,3 +27,4 @@
 <% end %>
  
 </div>
+<%end%>

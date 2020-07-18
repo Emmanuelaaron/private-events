@@ -25,6 +25,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    if current_user == @event.creator || @event.event_attendees
+        .include?(current_user)
+      redirect_to @event
+    else
+      redirect_to current_user
+    end
   end
 
   def index
