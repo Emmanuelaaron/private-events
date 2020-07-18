@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
+  before_action :authenticate_user!, only: [:show]
   def new
     @user = User.new
   end
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to @user
     else
-      render 'new'
+      render :new
     end
   end
 

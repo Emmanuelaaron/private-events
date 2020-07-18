@@ -1,18 +1,19 @@
 <%if @user.errors%>
 <%@user.errors.full_messages.each do |error|%>
-<%=error%>
+<div class="alert alert-danger "><%=error %></div>
 <%end%>
 <%end%>
-
-<%= form_for @user do |f| %>
-<fieldset>
- <%= f.label :username, "User Name" %>
- <%= f.text_field :username %>
-</fieldset>
-<fieldset>
- <%= f.label :email, "Email" %>
- <%= f.email_field :email %>
-</fieldset>
-<%= f.submit %>
-
-<% end %>
+<div class="mt-3">
+ <%= form_for @user do |f| %>
+ <fieldset class="form-group">
+  <%= f.label :username, "User Name",class:"form-control" %>
+  <%= f.text_field :username ,class:'form-control'%>
+ </fieldset>
+ <fieldset class="form-group">
+  <%= f.label :email, "Email",class:'form-control' %>
+  <%= f.email_field :email ,class:'form-control'%>
+ </fieldset>
+ <%= f.submit class:'form-control btn btn-primary' %>
+ 
+ <% end %>
+</div>

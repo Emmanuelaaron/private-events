@@ -1,8 +1,10 @@
-<div>
-  <p><%= @event.description %></p>
-  <p><%= @event.event_date %></p>
-  <p>Organised by <%= @event.creator.username %></p>
-  <h2>Event Attendees</h2>
+<div class>
+  <div class="d-flex justify-content-between align-content-center my-3 p-2 jumbotron">
+    <p class="lead"><%= @event.description %></p>
+    <p class="lead"><%= @event.event_date %></p>
+    <p class="lead">Organised by <%= @event.creator.username.capitalize %></p>
+  </div>
+  <p class="lead bold">Event Attendees</p>
   <ul>
   <li>
    <% @event.event_attendees.each do |attendee|%>
