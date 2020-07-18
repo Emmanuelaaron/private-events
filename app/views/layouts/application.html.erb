@@ -21,14 +21,6 @@
   <% end %>
   </a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
-        <%if signed_in?%>
-        <%= link_to  "Home", user_path(current_user) ,class:"nav-link"%>
-        <%end%>
-      </li>
-      </ul>
       <ul class="navbar-nav ml-auto">
       <%if signed_in? %>
       <%= link_to  "Create Event", new_event_path, class:"nav-link nav-item" %>
