@@ -6,7 +6,11 @@ class EventsController < ApplicationController
 
   def invite
     @event = Event.find(params[:event_id])
-    @event.event_attendees << User.find_by(username: params[:username])
+    if User.find_by(username: params[:username])
+      @event.event_attendees << User.find_by(username: params[:username])
+    else
+      flash[:danger] = 'No such user exits'
+    end
     redirect_to @event
   end
 

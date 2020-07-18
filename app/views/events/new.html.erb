@@ -6,14 +6,14 @@
 <%end%>
 
 <%= form_for @event do |f| %>
-<fieldset>
- <%= f.label :description, "Description" %>
- <%= f.text_field :description %>
+<fieldset class="form-group">
+ <%= f.label :description, "Description" ,class:'form-control'%>
+ <%= f.text_field :description ,class:'form-control'%>
 </fieldset>
-<fieldset>
- <%= f.label :event_date, "Event date" %>
- <%= f.date_field :event_date %>
+<fieldset class="form-group">
+ <%= f.label :event_date, "Event date",class:'form-control' %>
+ <%= f.date_field :event_date,class:'form-control' %>
 </fieldset>
-<%= f.submit %>
+<%= f.submit class:'form-control btn btn-primary'%>
 
 <% end %>
