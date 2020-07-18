@@ -1,7 +1,7 @@
 <h1>Create Event</h1>
 <%if @event.errors%>
 <%@event.errors.full_messages.each do |error|%>
-<%=error%>
+<div class="alert alert-danger"><%=error%></div>
 <%end%>
 <%end%>
 

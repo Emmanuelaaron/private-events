@@ -8,7 +8,7 @@
 <p class="lead">You created zero events</p>
 <%end%>
 <h2>Events to Attend : </h2>
-<%if current_user.attended_events.count>0%>
+<%if current_user and current_user.attended_events.count>0%>
  You have <%= pluralize(current_user.attended_events.count,'event')%> to attend.
 <ul class="d-flex flex-column">
     <%@current_user.attended_events.each do |event|%>
