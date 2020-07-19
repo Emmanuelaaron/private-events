@@ -5,12 +5,14 @@ class EventsController < ApplicationController
   end
 
   def invite
+    # debugger
     @event = Event.find(params[:event_id])
-    if (user = User.find_by(username: params[:username]))
+    user = User.find_by(username: params[:username])
+    if !user.nil?
       if @event.event_attendees.include?(user)
         flash[:danger] = "#{params[:username].capitalize} is already invited"
       else
-        @event.event_attendees << User.find_by(username: params[:username])
+        @event.event_attendees << user
         flash[:success] = "#{params[:username].capitalize} successfuly invited!"
       end
     else
@@ -43,6 +45,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:description, :event_date, :username)
+    params.require(:event)
+      .permit(:description, :event_date, :username, :event_id)
   end
 end

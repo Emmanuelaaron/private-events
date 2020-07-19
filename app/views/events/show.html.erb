@@ -8,23 +8,23 @@
 
    <% @event.event_attendees.each do |attendee|%>
 
-   <p><%=attendee.username%></p>
+   <p><%=attendee.username.capitalize%></p>
    <%end%>
   
  <%if @event.creator==current_user%>
- <div>
+  <div>
     <h2>Invite Freinds</h2>
-    <div class="form-group">
+    
       <%= form_tag invite_path do %>
+     <div class="form-group">
       <%= label_tag "User Name",nil,class:'form-control' %>
       <%= text_field_tag "username",nil,class:"form-control"%>
     </div>
     <div class="form-group">
-      <%=submit_tag 'Invite' ,class:"form-control btn btn-primary" %>
       <%=hidden_field_tag  "event_id" ,"#{@event.id}"%>
+      <%=submit_tag 'Invite' ,class:"form-control btn btn-primary" %>
     </div>
- </div>
-<% end %>
- 
+    <%end%>
+  </div>
+ <%end%>
 </div>
-<%end%>

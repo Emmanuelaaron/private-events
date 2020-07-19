@@ -3,11 +3,11 @@
   <h1 class="h2 py-3">Log in</h1>
   
   <%= form_tag log_in_path do %>
-  <fieldset class="form-group">
-   <%= label_tag "User Name",nil,class:'form-control' %>
+  <fieldset class="form-group my-3">
+   <%= label_tag "User Name",nil,class:'form-control my-3' %>
    <%= text_field_tag "user[username]",nil,class:"form-control"%>
   </fieldset>
-  <%=submit_tag 'Log in' ,class:"form-control btn btn-primary"%>
+  <%=submit_tag 'Log in' ,class:"form-control btn btn-primary my-3"%>
   <div class="pt-5">Not Registered yet? <%= link_to  "Sign up", new_user_path %></div>
   <% end %>
  </div>
