@@ -2,10 +2,18 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   context 'validations' do
-    it 'is valid with valid attributes'
-    it 'is not valid without a title'
-    it 'is not valid without a description'
-    it 'is not valid without a start_date'
-    it 'is not valid without a end_date'
+    let(:user) { build(:user) }
+
+    it 'is valid with valid attributes' do
+      expect(user).to be_valid
+    end
+    it 'is not valid without an email' do
+      user.email = nil
+      expect(user.save).to eql(false)
+    end
+    it 'is not valid without a username' do
+      user.username = nil
+      expect(user).to_not be_valid
+    end
   end
 end
