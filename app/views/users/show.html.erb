@@ -34,12 +34,12 @@
   <%@current_user.past_events.each do |event|%>
    <p class="jumbotron d-flex justify-content-between py-2 my-2 alert-danger">
    <span> <%= link_to  event.description, event_path(event) %></span>
-   <span> ON: <%=event.event_date.strftime('%FT%T')%></span>
+   <span> ON: <%=event.event_date%></span>
    <span> BY:  <%=event.creator.username.capitalize%></span>
    </p>
   <%end%>
 </div>
 <%else%>
-<p class ="lead">You have no events to attend</p>
+<p class ="lead">You have no past events</p>
 <%end%>
 

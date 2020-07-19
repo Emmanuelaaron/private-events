@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   post 'events/invite' ,as: :invite
   resources :users, only: [:new,:show, :create]
   resources :events, except: [:edit, :update]
+  root  to: "users#new"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
