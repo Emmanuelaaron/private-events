@@ -15,5 +15,8 @@ RSpec.describe User, type: :model do
       user.username = nil
       expect(user).to_not be_valid
     end
+    it 'should save successfuly' do
+      expect(user.save).to eql(true)
+    end
   end
 end
