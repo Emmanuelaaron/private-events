@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'authentication', type: :feature do
+RSpec.describe 'Authentication', type: :feature do
   let(:user) { create(:user) }
   context 'Sign in' do
     describe 'with valid credential' do

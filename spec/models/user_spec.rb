@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  context 'validations' do
+  context 'Validations' do
     let(:user) { build(:user) }
 
     it 'is valid with valid attributes' do
@@ -18,8 +18,17 @@ RSpec.describe User, type: :model do
     it 'should save successfuly' do
       expect(user.save).to eql(true)
     end
+    it do
+      should validate_uniqueness_of(:username)
+    end
+    it do
+      should validate_uniqueness_of(:email)
+    end
   end
 
-  context 'associations' do
+  context 'Associations' do
+    describe 'associations' do
+      it { is_expected.to have_many(:events) }
+    end
   end
 end
