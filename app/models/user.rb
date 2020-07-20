@@ -10,6 +10,6 @@ class User < ApplicationRecord
   end
 
   def past_events
-    attended_evencts.where('event_date<?', Time.now)
+    attended_events.where('event_date<?', Time.now)
   end
 end
