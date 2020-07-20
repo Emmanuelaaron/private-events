@@ -3,6 +3,4 @@ FactoryBot.define do
     username { Faker::Artist.name }
     email { Faker::Internet.email }
   end
-  factory :event do
-  end
 end
