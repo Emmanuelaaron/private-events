@@ -1,8 +1,17 @@
-<h1>All Events</h1>
-<ul>
-  <% @events.each do |event| %>
-    <li><%= event.description %> @<%= event.event_date %></li>
-  
+<h1 class="title mx-auto">All Events</h1>
+
+<h2>Upcoming Events</h2>
+<div>
+  <% @upcoming_events.each do |event| %>
+    <p class="jumbotron p-3 bg-info text-light lead mt-1"><%= event.description %> @<%= event.event_date %></p>
   <% end %>
-</ul>
+</div>
+
+<h2 class="">Past Events</h2>
+
+<div class="mt-2">
+  <% @past_events.each do |event| %>
+    <p class="jumbotron p-3 alert-danger text-dark lead"><%= event.description %> @<%= event.event_date %></p>
+  <% end %>
+</div>
 
