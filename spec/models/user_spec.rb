@@ -9,7 +9,7 @@ RSpec.describe User, type: :model do
     end
     it 'is not valid without an email' do
       user.email = nil
-      expect(user.save).to eql(false)
+      expect(user).to_not be_valid
     end
     it 'is not valid without a username' do
       user.username = nil
@@ -18,5 +18,8 @@ RSpec.describe User, type: :model do
     it 'should save successfuly' do
       expect(user.save).to eql(true)
     end
+  end
+
+  context 'associations' do
   end
 end
