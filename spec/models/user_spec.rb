@@ -27,8 +27,14 @@ RSpec.describe User, type: :model do
   end
 
   context 'Associations' do
-    describe 'associations' do
+    describe 'has many events' do
       it { is_expected.to have_many(:events) }
+    end
+    describe 'has many attendances' do
+      it { is_expected.to have_many(:attendances) }
+    end
+    describe 'has many attendances' do
+      it { is_expected.to have_many(:attended_events) }
     end
   end
 end
