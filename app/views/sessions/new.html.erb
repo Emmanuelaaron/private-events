@@ -1,14 +1,13 @@
 <div clas="row">
- <div class='card p-3 m-3 col-md-6 mx-auto'>
-  <h1 class="h2 py-3">Log in</h1>
+ <div class='p-3 m-3 col-md-6 mx-auto mt-5'>
+  <h2 class="h2 py-3 mx-auto">Please Login</h2>
   
   <%= form_tag log_in_path do %>
   <fieldset class="form-group my-3">
-   <%= label_tag "User Name",nil,class:'form-control my-3' %>
-   <%= text_field_tag "user[username]",nil,class:"form-control"%>
+   <%= text_field_tag "user[username]",nil,class:"form-control",placeholder: "User name"%>
   </fieldset>
   <%=submit_tag 'Log in' ,class:"form-control btn btn-primary my-3"%>
-  <div class="pt-5">Not Registered yet? <%= link_to  "Sign up", new_user_path %></div>
+  <div class="pt-5 mx-auto">Not Registered yet? <%= link_to  "Sign up", new_user_path %></div>
   <% end %>
  </div>
 </div>
