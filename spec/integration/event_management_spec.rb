@@ -61,4 +61,17 @@ RSpec.describe 'Event management', type: :feature do
       end
     end
   end
+  context 'User should be able to see events created' do
+    describe 'created events' do
+      it 'Able to see all events created' do
+        event.creator = creator
+        visit root_path
+        click_on 'Login'
+        fill_in 'user_username', with: creator.username
+        click_button 'Log in'
+        click_link 'All Events'
+        expect(page).to have_content('All Events')
+      end
+    end
+  end
 end
