@@ -66,9 +66,7 @@ RSpec.describe 'Event management', type: :feature do
       it 'Able to see all events created' do
         event.creator = creator
         visit root_path
-        click_on 'Login'
-        fill_in 'user_username', with: creator.username
-        click_button 'Log in'
+        log_in(creator.username)
         click_link 'All Events'
         expect(page).to have_content('All Events')
       end
@@ -76,9 +74,7 @@ RSpec.describe 'Event management', type: :feature do
     it 'user should be able to see events they have been invited to' do
       event.creator = creator
       visit root_path
-      click_on 'Login'
-      fill_in 'user_username', with: creator.username
-      click_button 'Log in'
+      log_in(creator.username)
       click_link 'Create Event'
       fill_in 'event_description', with: event.description
       fill_in 'event_event_date', with: event.event_date
@@ -86,11 +82,17 @@ RSpec.describe 'Event management', type: :feature do
       fill_in 'username', with: invitee.username
       click_button 'Invite'
       click_link 'Log out'
-      click_on 'Login'
-      fill_in 'user_username', with: invitee.username
-      click_button 'Log in'
-      click_link invitee.username.to_s
+      log_in(invitee.username)
+      click_link invitee.username
       expect(page).to have_content('You have 1 event to attend.')
+      expect(page).to have_content('Upcoming events to attend')
+      expect(page).to have_content('Past Events')
     end
   end
+end
+
+def log_in(username)
+  click_on 'Login'
+  fill_in 'user_username', with: username
+  click_button 'Log in'
 end
