@@ -73,5 +73,24 @@ RSpec.describe 'Event management', type: :feature do
         expect(page).to have_content('All Events')
       end
     end
+    it 'user should be able to see events they have been invited to' do
+      event.creator = creator
+      visit root_path
+      click_on 'Login'
+      fill_in 'user_username', with: creator.username
+      click_button 'Log in'
+      click_link 'Create Event'
+      fill_in 'event_description', with: event.description
+      fill_in 'event_event_date', with: event.event_date
+      click_button 'Create Event'
+      fill_in 'username', with: invitee.username
+      click_button 'Invite'
+      click_link 'Log out'
+      click_on 'Login'
+      fill_in 'user_username', with: invitee.username
+      click_button 'Log in'
+      click_link invitee.username.to_s
+      expect(page).to have_content('You have 1 event to attend.')
+    end
   end
 end
