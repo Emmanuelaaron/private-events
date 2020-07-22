@@ -13,7 +13,7 @@ RSpec.describe 'Event management', type: :feature do
   let(:event) { build(:event) }
   context 'Create event' do
     describe 'with valid input' do
-      it 'it successfully creates an event' do
+      it 'successfully creates an event' do
         event.creator = creator
         visit root_path
         click_on 'Login'

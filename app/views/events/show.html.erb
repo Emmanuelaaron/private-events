@@ -14,11 +14,9 @@
  <%if @event.creator==current_user%>
   <div>
     <h2>Invite Freinds</h2>
-    
       <%= form_tag invite_path do %>
      <div class="form-group">
-      <%= label_tag "User Name",nil,class:'form-control' %>
-      <%= text_field_tag "username",nil,class:"form-control"%>
+      <%= text_field_tag "username",nil,class:"form-control",placeholder:"User Name"%>
     </div>
     <div class="form-group">
       <%=hidden_field_tag  "event_id" ,"#{@event.id}"%>

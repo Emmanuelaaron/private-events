@@ -7,12 +7,10 @@
 
 <%= form_for @event do |f| %>
 <fieldset class="form-group">
- <%= f.label :description, "Description" ,class:'form-control'%>
- <%= f.text_field :description ,class:'form-control'%>
+ <%= f.text_field :description ,class:'form-control',placeholder:'Description'%>
 </fieldset>
 <fieldset class="form-group">
- <%= f.label :event_date, "Event date",class:'form-control' %>
- <%= f.date_field :event_date,class:'form-control' %>
+ <%= f.date_field :event_date,class:'form-control',placeholder:'Event date' %>
 </fieldset>
 <%= f.submit class:'form-control btn btn-primary'%>
 
