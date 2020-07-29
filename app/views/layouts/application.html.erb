@@ -18,22 +18,11 @@
    <p class="navbar-brand">PrivateEvents</p>
   <% end %>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-      <%if signed_in? %>
-       <%= link_to  "All Events", events_path, class:"nav-link nav-item" %>
-
-      <%= link_to  "Create Event", new_event_path, class:"nav-link nav-item" %>
-
-      <%= link_to  "Log out",log_out_path, class:'nav-link nav-item', method: :delete, data:{confirmation:"Are you sure?"} %>
-
-
-       <%= image_tag avatar_url(current_user) %>
-    
-      <%else%>
-       <%= link_to  "Sign Up",new_user_path, class:'nav-link nav-item' %>
-     <%= link_to  "Login", sessions_new_path, class:'nav-link nav-item' %>
-   
-      <%end%>
+    <ul class="navbar-nav ml-auto">
+      <%=logged_in_user_log?%>
+      <%=logged_in_user_all_events?%>
+      <%=logged_in_user_create_event?%>
+      <%=logged_in_user_avatar?%>
     </ul>
   </div>
 </nav>
