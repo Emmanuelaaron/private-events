@@ -12,11 +12,7 @@
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   
-  <%if signed_in?%>
-  <%=link_to current_user.username.capitalize , current_user,class:'navbar-brand'%>
-  <% else %>
-   <p class="navbar-brand">PrivateEvents</p>
-  <% end %>
+  <%=logged_in_private?%>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <%=logged_in_user_log?%>
@@ -26,18 +22,9 @@
     </ul>
   </div>
 </nav>
-<% if flash[:danger]%>
-  <div class="container">
-  <p class="alert alert-danger  my-3 p-3">
-  <%=flash[:danger]%></p>
-   </div>
-  <%elsif flash[:success]%>
-  <div class="container">
-  <p class="alert alert-success  my-3 p-3">
-  <%=flash[:success]%></p>
-   </div>
-  <%end%>
- 
+<div class="container">
+  <%=error_flashes%>
+</div>
    <div class="container"> 
    <%= yield %>
    </div>
