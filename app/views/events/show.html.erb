@@ -6,7 +6,7 @@
   </div>
   <h2 class="title">Event Attendees</h2>
 
-   <% @event.event_attendees.each do |attendee|%>
+   <% @event.attendees.each do |attendee|%>
 
    <p><%=attendee.username.capitalize%></p>
    <%end%>

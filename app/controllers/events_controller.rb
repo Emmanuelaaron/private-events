@@ -9,10 +9,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     user = User.find_by(username: params[:username])
     if !user.nil?
-      if @event.event_attendees.include?(user)
+      if @event.attendees.include?(user)
         flash[:danger] = "#{params[:username].capitalize} is already invited"
       else
-        @event.event_attendees << user
+        @event.attendees << user
         flash[:success] = "#{params[:username].capitalize} successfuly invited!"
       end
     else
