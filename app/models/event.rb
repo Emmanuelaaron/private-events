@@ -5,8 +5,5 @@ class Event < ApplicationRecord
   validates :description, :event_date, presence: true
 
   scope :past, -> { where('event_date < ?', Time.now) }
-  scope :upcoming, lambda {
-                     where('event_date >= ?', Time.now)
-                       .or(where('event_date IS NULL'))
-                   }
+  scope :upcoming, -> { where('event_date >= ?', Time.now) }
 end
