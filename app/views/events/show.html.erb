@@ -1,0 +1,28 @@
+<div class>
+  <div class="d-flex justify-content-between align-content-center my-3 p-2 jumbotron">
+    <p class="lead"><%= @event.description %></p>
+    <p class="lead"><%= @event.event_date %></p>
+    <p class="lead">Organised by <%= @event.creator.username.capitalize %></p>
+  </div>
+  <h2 class="title">Event Attendees</h2>
+
+   <% @event.attendees.each do |attendee|%>
+
+   <p><%=attendee.username.capitalize%></p>
+   <%end%>
+  
+ <%if @event.creator==current_user%>
+  <div>
+    <h2>Invite Freinds</h2>
+      <%= form_tag invite_path do %>
+     <div class="form-group">
+      <%= text_field_tag "username",nil,class:"form-control",placeholder:"User Name"%>
+    </div>
+    <div class="form-group">
+      <%=hidden_field_tag  "event_id" ,"#{@event.id}"%>
+      <%=submit_tag 'Invite' ,class:"form-control btn btn-primary" %>
+    </div>
+    <%end%>
+  </div>
+ <%end%>
+</div>

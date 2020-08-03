@@ -1,0 +1,17 @@
+<h1>Create Event</h1>
+<%if @event.errors%>
+<%@event.errors.full_messages.each do |error|%>
+<div class="alert alert-danger"><%=error%></div>
+<%end%>
+<%end%>
+
+<%= form_for @event do |f| %>
+<fieldset class="form-group">
+ <%= f.text_field :description ,class:'form-control',placeholder:'Description'%>
+</fieldset>
+<fieldset class="form-group">
+ <%= f.date_field :event_date,class:'form-control',placeholder:'Event date' %>
+</fieldset>
+<%= f.submit class:'form-control btn btn-primary'%>
+
+<% end %>

@@ -8,8 +8,25 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  
   <body>
-    <%= yield %>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  
+  <%=logged_in_private?%>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <%=logged_in_user_log?%>
+      <%=logged_in_user_all_events?%>
+      <%=logged_in_user_create_event?%>
+      <%=logged_in_user_avatar?%>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <%=error_flashes%>
+</div>
+   <div class="container"> 
+   <%= yield %>
+   </div>
   </body>
 </html>
