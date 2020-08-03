@@ -1,7 +1,7 @@
 
 <h2 class="mt-3">Events You Created</h2>
 <%if current_user.events.count>0%>
-<% current_user.events.each do |event| %>
+<% @created_events.each do |event| %>
  <p class="bg-info rounded py-3"> 
   <%= link_to  event.description, event_path(event) ,class:'lead text-light py-5 px-3'%>
  </p>
