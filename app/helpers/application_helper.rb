@@ -36,8 +36,8 @@ module ApplicationHelper
       link_to current_user.username.capitalize,
               current_user, class: 'navbar-brand'
     else
-      content_tag(:p, '<%= PrivateEvents %>',
-                  class: 'avbar-brand')
+      content_tag(:p, PrivateEvents,
+                  class: 'navbar-brand')
     end
   end
 end
