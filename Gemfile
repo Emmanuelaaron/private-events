@@ -10,7 +10,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'bootstrap', '~> 4.0'
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript.
